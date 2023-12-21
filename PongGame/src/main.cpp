@@ -1,10 +1,8 @@
 #include "core/Engine.h"
 
-
-
 int main()
 {
 	
 	ENGINE.init(1080, 720, "title");
-	return 0;
+	return EXIT_SUCCESS;
 }
