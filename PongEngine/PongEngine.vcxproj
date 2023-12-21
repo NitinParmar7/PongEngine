@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\components\scene\Scene.cpp" />
+    <ClCompile Include="src\components\BaseComponent.cpp" />
     <ClCompile Include="src\components\scene\SceneManager.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -247,6 +247,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\BaseComponent.h" />
     <ClInclude Include="src\components\scene\Scene.h" />
     <ClInclude Include="src\components\scene\SceneManager.h" />
     <ClInclude Include="src\core\Engine.h" />
