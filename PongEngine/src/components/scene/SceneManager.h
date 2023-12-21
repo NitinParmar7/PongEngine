@@ -1,9 +1,11 @@
 ﻿#pragma once
-#include <cstdint>
-#include "../../core/CoreTypeDef.h"
-#include <vector>
 #include <memory>
+#include <unordered_map>
+#include <vector>
 
+#include "SceneDef.h"
+#include "../../core/CoreTypeDef.h"
+#include "../core/EngineComponent.h"
 class Scene;
 
 ENGINE_BEGIN
@@ -11,15 +13,23 @@ ENGINE_BEGIN
 
 typedef std::unique_ptr<Scene> scene_unique_ptr;
 
-class SceneManager
+class SceneManager : public EngineComponent
 {
 public:
 
-	SceneManager();
+#pragma region EngineComponent
 
-	void AddScene(const scene_unique_ptr& scene_to_add);
+	void init(const EngineCore* parent) override;
+	void update() override;
+	void end() override;
 
-	void RemoveScene(const scene_unique_ptr& scene_to_remove);
+#pragma endregion
+
+	SceneManager() = default;
+
+	void AddScene(const SceneBehaviourData<scene_unique_ptr>& scene_to_add);
+
+	void RemoveScene(const SceneBehaviourData<scene_unique_ptr>& scene_to_remove);
 
 	void NextScene();
 
@@ -30,6 +40,9 @@ private:
 	std::vector<scene_unique_ptr>::iterator current_scene_;
 
 	std::vector<scene_unique_ptr> scenes_;
+
+	std::vector<SceneBehaviourData<scene_unique_ptr>> scene_behavior_;
+
 };
 
 ENGINE_END

@@ -1,48 +1,57 @@
 ﻿#include "SceneManager.h"
-
 #include "Scene.h"
 
 ENGINE_BEGIN
-	SceneManager::SceneManager()
+void SceneManager::init(const EngineCore* parent)
 {
+	EngineComponent::init(parent);
+	scenes_.clear();
 	current_scene_ = scenes_.begin();
 }
 
-void SceneManager::AddScene(const std::unique_ptr<Scene>& scene_to_add)
+void SceneManager::update()
 {
-	scenes_.push_back(scene_to_add);
+	if(current_scene_ != scenes_.end())
+	{
+		current_scene_->get()->UpdateScene();
+	}
 }
 
-void SceneManager::RemoveScene(const std::unique_ptr<Scene>& scene_to_remove)
+void SceneManager::end()
 {
-	scene_to_remove->ExitScene();
-	std::erase(scenes_, scene_to_remove);
+	for (const auto element : scenes_)
+	{
+		element->ExitScene();
+	}
+	current_scene_ = scenes_.end();
+	scenes_.clear();
+}
+
+
+void SceneManager::AddScene(const SceneBehaviourData<scene_unique_ptr>& scene_to_add)
+{
+	scene_behavior_.push_back(scene_to_add);
+}
+
+void SceneManager::RemoveScene(const SceneBehaviourData<scene_unique_ptr>& scene_to_remove)
+{
+	scene_behavior_.push_back(scene_to_remove);
 }
 
 
 void SceneManager::NextScene()
 {
-	if(current_scene_ != scenes_.end())
-	{
-		current_scene_->get()->ExitScene();
-		++current_scene_;
-		current_scene_->get()->EnterScene();
-	}
+	scene_behavior_.push_back(static_cast<SceneBehaviourData<scene_unique_ptr>>(ESCENE_BEHAVIOUR::Next_Scene));
 }
 
 void SceneManager::PreviousScene()
 {
-	if(current_scene_ != scenes_.begin())
-	{
-		current_scene_->get()->ExitScene();
-		--current_scene_;
-		current_scene_->get()->EnterScene();
-	}
+	scene_behavior_.push_back(static_cast<SceneBehaviourData<scene_unique_ptr>>(ESCENE_BEHAVIOUR::Previous_Scene));
 }
-
-
 
 
 
 
 ENGINE_END
+
+
