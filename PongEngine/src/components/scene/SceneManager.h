@@ -1,17 +1,14 @@
 ﻿#pragma once
+#include <deque>
 #include <memory>
-#include <unordered_map>
 #include <vector>
 
 #include "SceneDef.h"
-#include "../../core/CoreTypeDef.h"
+#include "Scene.h"
 #include "../core/EngineComponent.h"
-class Scene;
 
 ENGINE_BEGIN
 
-
-typedef std::unique_ptr<Scene> scene_unique_ptr;
 
 class SceneManager : public EngineComponent
 {
@@ -27,21 +24,23 @@ public:
 
 	SceneManager() = default;
 
-	void AddScene(const SceneBehaviourData<scene_unique_ptr>& scene_to_add);
+	void AddScene(SceneBehaviourData<Scene> scene_to_add);
 
-	void RemoveScene(const SceneBehaviourData<scene_unique_ptr>& scene_to_remove);
+	void RemoveScene(SceneBehaviourData<Scene> scene_to_remove);
 
 	void NextScene();
 
 	void PreviousScene();
 
+	void ProcessScene();
+
 private:
 
-	std::vector<scene_unique_ptr>::iterator current_scene_;
+	std::vector<std::unique_ptr<Scene>>::iterator current_scene_;
 
-	std::vector<scene_unique_ptr> scenes_;
+	std::vector<std::unique_ptr<Scene>> scenes_;
 
-	std::vector<SceneBehaviourData<scene_unique_ptr>> scene_behavior_;
+	std::deque<SceneBehaviourData<Scene>> scene_behavior_;
 
 };
 

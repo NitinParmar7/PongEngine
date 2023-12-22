@@ -1,18 +1,19 @@
 #pragma once
 #include <memory>
-#include <string_view>
+#include <SFML/Graphics.hpp>
 #include "CoreTypeDef.h"
 
-namespace sf
-{
-	class RenderWindow;
-}
 
 ENGINE_BEGIN
+
+	class SceneManager;
+
 	class EngineCore
 	{
 
 	public:
+
+		~EngineCore() = default;
 	
 		EngineCore(const EngineCore&) = delete;
 
@@ -26,14 +27,14 @@ ENGINE_BEGIN
 
 		void init(unsigned int width_to_set, unsigned int height_to_set, std::string_view title_to_set);
 
-		void start();
+		void run();
 
 
 	private:
 
 		EngineCore() = default;
 
-		~EngineCore() = default;
+
 
 		unsigned int width_ = 1080;
 
@@ -42,6 +43,8 @@ ENGINE_BEGIN
 		std::string_view title_;
 
 		std::shared_ptr<sf::RenderWindow> render_window_;
+
+		std::unique_ptr<SceneManager> scene_manager_;
 
 	};
 

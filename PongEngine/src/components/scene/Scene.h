@@ -1,6 +1,10 @@
 ﻿#pragma once
 #include <cstdint>
 
+#include "../../core/CoreTypeDef.h"
+
+ENGINE_BEGIN
+
 class Scene
 {
 public:
@@ -29,15 +33,19 @@ public:
 
     virtual ~Scene() = default;
 
-    virtual void RegisterScene() = 0;
-
     virtual void EnterScene() = 0;
 
     virtual void UpdateScene() = 0;
 
     virtual void ExitScene() = 0;
 
+    [[nodiscard]] virtual inline uint8_t getSceneID() const {return  scene_id_;};
+
 private:
 
     uint8_t scene_id_;
 };
+
+ENGINE_END
+
+

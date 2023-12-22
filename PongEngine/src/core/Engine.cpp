@@ -1,9 +1,11 @@
 #include "Engine.h"
-#include <SFML/Graphics.hpp>
+
 #include <string>
 
-ENGINE_BEGIN
+#include "../components/scene/SceneManager.h"
 
+
+ENGINE_BEGIN
     EngineCore& EngineCore::get()
     {
         static std::unique_ptr<EngineCore> instance(new EngineCore());
@@ -15,27 +17,30 @@ ENGINE_BEGIN
         width_ = width_to_set;
         height_ = height_to_set;
         title_ = title_to_set;
-        start();
+        render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(width_, height_), static_cast<std::string>(title_));
+        scene_manager_ = std::make_unique<SceneManager>();
+        run();
     }
 
-    void EngineCore::start()
+    // ReSharper disable once CppMemberFunctionMayBeConst
+    void EngineCore::run()
     {
-        sf::RenderWindow window(sf::VideoMode(width_, height_), static_cast<std::string>(title_));
         sf::CircleShape shape(100.f);
         shape.setFillColor(sf::Color::Green);
 
-        while (window.isOpen())
+        while (render_window_->isOpen())
         {
             sf::Event event;
-            while (window.pollEvent(event))
+            while (render_window_->pollEvent(event))
             {
                 if (event.type == sf::Event::Closed)
-                    window.close();
+                    render_window_->close();
             }
 
-            window.clear();
-            window.draw(shape);
-            window.display();
+            render_window_->clear();
+            render_window_->draw(shape);
+            render_window_->display();
+            scene_manager_->ProcessScene();
         }
     }
 

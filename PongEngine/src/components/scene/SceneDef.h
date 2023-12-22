@@ -3,7 +3,9 @@
 
 #include "../../core/CoreTypeDef.h"
 
+
 ENGINE_BEGIN
+
 
 enum class ESCENE_BEHAVIOUR : uint8_t
 {
@@ -17,22 +19,17 @@ enum class ESCENE_BEHAVIOUR : uint8_t
 template<typename T>
 struct SceneBehaviourData
 {
-
-    SceneBehaviourData()
-        :behaviour(ESCENE_BEHAVIOUR::None),
-        scene(nullptr){}
-
-    explicit SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour)
-     : behaviour(behaviour),
-       scene(nullptr){}
-
-    SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour, const std::unique_ptr<T>& scene)
-        : behaviour(behaviour),
-          scene(scene){}
-
     ESCENE_BEHAVIOUR behaviour = ESCENE_BEHAVIOUR::None;
-    std::unique_ptr<T> scene = nullptr;
+    std::unique_ptr<T> data = nullptr;
 
+    SceneBehaviourData() : data(nullptr) {} // Default-constructed unique_ptr
+
+    SceneBehaviourData(std::unique_ptr<T> data = nullptr) : data(std::move(data)) {}
+
+    explicit SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour) : behaviour(behaviour), data(nullptr) {}
+
+    SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour, std::unique_ptr<T> data)
+        : behaviour(behaviour), data(std::move(data)) {}
 };
 
 
