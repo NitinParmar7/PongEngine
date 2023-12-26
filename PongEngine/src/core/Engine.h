@@ -2,6 +2,7 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "CoreTypeDef.h"
+#include "EngineData.h"
 
 
 ENGINE_BEGIN
@@ -29,18 +30,13 @@ ENGINE_BEGIN
 
 		void run();
 
+		[[nodiscard]] std::shared_ptr<EngineData> GetData() const { return  data_; }
 
 	private:
 
 		EngineCore() = default;
 
-
-
-		unsigned int width_ = 1080;
-
-		unsigned int height_ = 720;
-
-		std::string_view title_;
+		std::shared_ptr<EngineData> data_;
 
 		std::shared_ptr<sf::RenderWindow> render_window_;
 

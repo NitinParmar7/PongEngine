@@ -14,10 +14,8 @@ ENGINE_BEGIN
 
     void EngineCore::init(unsigned int width_to_set, unsigned int height_to_set, std::string_view title_to_set)
     {
-        width_ = width_to_set;
-        height_ = height_to_set;
-        title_ = title_to_set;
-        render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(width_, height_), static_cast<std::string>(title_));
+        data_ =  std::make_shared<EngineData>(width_to_set, height_to_set, title_to_set);
+        render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(data_->WIDTH, data_->HEIGHT), static_cast<std::string>(data_->TITLE));
         scene_manager_ = std::make_unique<SceneManager>();
         run();
     }
