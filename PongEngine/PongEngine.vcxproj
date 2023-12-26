@@ -12,7 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\core\EngineComponent.cpp" />
+    <ClCompile Include="src\components\core\GameObjectComponent.cpp" />
     <ClCompile Include="src\components\input\InputComponent.cpp" />
+    <ClCompile Include="src\components\input\InputListnerComponent.cpp" />
     <ClCompile Include="src\components\scene\SceneManager.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -242,7 +244,9 @@
   <ItemGroup>
     <ClInclude Include="src\components\core\BaseComponent.h" />
     <ClInclude Include="src\components\core\EngineComponent.h" />
+    <ClInclude Include="src\components\core\GameObjectComponent.h" />
     <ClInclude Include="src\components\input\InputComponent.h" />
+    <ClInclude Include="src\components\input\InputListnerComponent.h" />
     <ClInclude Include="src\components\scene\Scene.h" />
     <ClInclude Include="src\components\scene\SceneDef.h" />
     <ClInclude Include="src\components\scene\SceneManager.h" />
