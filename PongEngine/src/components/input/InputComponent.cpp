@@ -2,7 +2,7 @@
 
 #include <SFML/Window/Keyboard.hpp>
 
-#include "InputListnerComponent.h"
+#include "InputListenerComponent.h"
 
 
 ENGINE_BEGIN
@@ -10,7 +10,7 @@ ENGINE_BEGIN
     {
         for (const auto& element : input_listener_components_)
         {
-            if(sf::Keyboard::isKeyPressed(element->key))
+            if(sf::Keyboard::isKeyPressed(element->key_))
             {
                 element->OnClick();
             }
