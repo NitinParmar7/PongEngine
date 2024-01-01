@@ -1,6 +1,8 @@
 ﻿#include "SceneManager.h"
 
 ENGINE_BEGIN
+
+#pragma region EngineComponent
 void SceneManager::init(const EngineCore* parent)
 {
 	EngineComponent::init(parent);
@@ -25,6 +27,8 @@ void SceneManager::end()
 	current_scene_ = scenes_.end();
 	scenes_.clear();
 }
+
+#pragma endregion 
 
 
 void SceneManager::AddScene(SceneBehaviourData<Scene> scene_to_add)
