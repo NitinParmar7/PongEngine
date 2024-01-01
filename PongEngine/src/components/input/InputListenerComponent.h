@@ -1,35 +1,37 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
 #include "CoreTypeDef.h"
+#include "core/GameObjectComponent.h"
 
 ENGINE_BEGIN
-
-typedef sf::Keyboard::Key Key;
-
-
-class InputListenerComponent
-{
-public:
+    typedef sf::Keyboard::Key Key;
 
 
-    InputListenerComponent()
-        : key_(Key::Unknown) {}
+    class InputListenerComponent : GameObjectComponent
+    {
+    public:
+        InputListenerComponent()
+            : key_(Key::Unknown)
+        {
+        }
 
-    explicit InputListenerComponent(const Key key)
-        : key_(key) {}
+        explicit InputListenerComponent(const Key key)
+            : key_(key)
+        {
+        }
 
-    void OnClick();
+        void OnClick();
 
-    [[nodiscard]] bool IsPressed() const { return pressed_; }
+        [[nodiscard]] bool IsPressed() const { return pressed_; }
 
-    void ConsumeInput();
+        void ConsumeInput();
 
-private:
+        [[nodiscard]] Key GetKey() const { return key_; }
 
-    bool pressed_ = false;
+    private:
+        bool pressed_ = false;
 
-    sf::Keyboard::Key key_;
-
-};
+        sf::Keyboard::Key key_;
+    };
 
 ENGINE_END

@@ -2,9 +2,14 @@
 
 ENGINE_BEGIN
 
-void InputListenerComponent::ConsumeInput()
-{
-    pressed_ = false;
-}
+    void InputListenerComponent::OnClick()
+    {
+        pressed_ = true;
+    }
+
+    void InputListenerComponent::ConsumeInput()
+    {
+        pressed_ = false;
+    }
 
 ENGINE_END
