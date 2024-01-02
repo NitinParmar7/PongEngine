@@ -16,7 +16,7 @@
     <ClCompile Include="src\components\core\ListableEngineComponent.cpp" />
     <ClCompile Include="src\components\graphics\DrawableEntity.cpp" />
     <ClCompile Include="src\components\graphics\GraphicComponent.cpp" />
-    <ClCompile Include="src\components\graphics\RenderComponent.cpp" />
+    <ClCompile Include="src\components\graphics\RendererComponent.cpp" />
     <ClCompile Include="src\components\input\InputComponent.cpp" />
     <ClCompile Include="src\components\input\InputListenerComponent.cpp" />
     <ClCompile Include="src\components\scene\SceneManager.cpp">
@@ -94,7 +94,7 @@
       <AdditionalIncludeDirectories>F:\Personal\C++\Projects\PongGame\PongEngine\include</AdditionalIncludeDirectories>
       <LibCompiled>true</LibCompiled>
     </ClCompile>
-    <ClCompile Include="src\core\CoreTypeDef.h">
+    <ClCompile Include="src\CoreTypeDef.h">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
@@ -168,6 +168,8 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>F:\Personal\C++\Projects\PongGame\PongEngine\include</AdditionalIncludeDirectories>
       <LibCompiled>true</LibCompiled>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)src\core;$(ProjectDir)src\components;$(ProjectDir)src;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)src\core;$(ProjectDir)src\components;$(ProjectDir)src;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="src\core\engine\Engine.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -253,7 +255,7 @@
     <ClInclude Include="src\components\core\ListableEngineComponent.h" />
     <ClInclude Include="src\components\graphics\DrawableEntity.h" />
     <ClInclude Include="src\components\graphics\GraphicComponent.h" />
-    <ClInclude Include="src\components\graphics\RenderComponent.h" />
+    <ClInclude Include="src\components\graphics\RendererComponent.h" />
     <ClInclude Include="src\components\input\InputComponent.h" />
     <ClInclude Include="src\components\input\InputListenerComponent.h" />
     <ClInclude Include="src\components\scene\Scene.h" />
@@ -304,7 +306,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)src\components\;$(ProjectDir)src\core\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Personal\C++\Projects\PongGame\PongEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -320,7 +322,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)src\components\;$(ProjectDir)src\core\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Personal\C++\Projects\PongGame\PongEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

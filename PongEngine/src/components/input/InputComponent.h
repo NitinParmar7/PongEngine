@@ -1,10 +1,8 @@
 ﻿#pragma once
 #include <memory>
-#include <vector>
 
-#include "CoreTypeDef.h"
-#include "core/EngineComponent.h"
-#include "core/ListableEngineComponent.h"
+#include "../../CoreTypeDef.h"
+#include "../core/ListableEngineComponent.h"
 
 
 ENGINE_BEGIN

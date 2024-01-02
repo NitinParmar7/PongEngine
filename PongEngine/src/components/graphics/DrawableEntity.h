@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <memory>
 #include <SFML/Graphics/Drawable.hpp>
-#include "CoreTypeDef.h"
+#include "../src/CoreTypeDef.h"
 
 ENGINE_BEGIN
 

@@ -10,7 +10,7 @@ class GameObjectComponent : public BaseComponent
 {
 public:
 
-    ~GameObjectComponent() override;
+   // ~GameObjectComponent() override;
 
     virtual void init(const GameObject* parent);
 

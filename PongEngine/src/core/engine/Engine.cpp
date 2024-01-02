@@ -1,9 +1,12 @@
 #include "Engine.h"
 
 #include <string>
+#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Window/Event.hpp>
 
-#include "../components/scene/SceneManager.h"
-#include "input/InputComponent.h"
+#include "../../components/graphics/RendererComponent.h"
+#include "../../components/input/InputComponent.h"
+#include "../../components/scene/SceneManager.h"
 
 
 ENGINE_BEGIN
@@ -14,19 +17,20 @@ ENGINE_BEGIN
     }
 
     template <class T>
-    std::unique_ptr<T> EngineCore::CreateComponent(T* component)
+    std::shared_ptr<T> EngineCore::CreateComponent()
     {
-        auto ptr = std::make_unique<T>(component);
-        return engine_components_.emplace_back(std::move(ptr));
+        auto ptr = std::make_shared<T>();
+        engine_components_.emplace_back(ptr);
+        return std::static_pointer_cast<T>(engine_components_.back());
     }
 
     void EngineCore::init(unsigned int width_to_set, unsigned int height_to_set, std::string_view title_to_set)
     {
         data_ =  std::make_shared<EngineData>(width_to_set, height_to_set, title_to_set);
         render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(data_->WIDTH, data_->HEIGHT), static_cast<std::string>(data_->TITLE));
-        scene_manager_ = CreateComponent(new SceneManager());
-        input_component_ = CreateComponent(new InputComponent());
-        render_component_ = CreateComponent(new RenderComponent());
+        scene_manager_ =  CreateComponent<SceneManager>();
+        input_component_ = CreateComponent<InputComponent>();
+        renderer_component_ = CreateComponent<RendererComponent>();
         run();
     }
 
@@ -36,7 +40,7 @@ ENGINE_BEGIN
         sf::CircleShape shape(100.f);
         shape.setFillColor(sf::Color::Green);
 
-        for (auto element& : engine_components_)
+        for (auto& element : engine_components_)
         {
             element->init(this);
         }
@@ -51,17 +55,17 @@ ENGINE_BEGIN
 
             render_window_->clear();
 
-            for (auto element& : engine_components_)
+            for (auto& element : engine_components_)
             {
                 element->update();
             }
             render_window_->draw(shape);
-            render_component_->Draw(render_window_);
+            renderer_component_->Draw(render_window_);
             render_window_->display();
             scene_manager_->ProcessScene();
         }
 
-        for (auto element& : engine_components_)
+        for (auto& element : engine_components_)
         {
             element->end();
         }

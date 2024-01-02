@@ -1,13 +1,16 @@
 #pragma once
 #include <memory>
 #include <SFML/Graphics.hpp>
-#include "CoreTypeDef.h"
-#include "EngineData.h"
-#include "graphics/RenderComponent.h"
-#include "input/InputComponent.h"
 
+#include "EngineData.h"
+#include "../../CoreTypeDef.h"
 
 ENGINE_BEGIN
+
+	class EngineComponent;
+	class RendererComponent;
+	class InputComponent;
+
 	class SceneManager;
 
 	class EngineCore
@@ -28,7 +31,7 @@ ENGINE_BEGIN
 		static EngineCore& get();
 
 		template<class T>
-		std::unique_ptr<T> CreateComponent(T* component);
+		std::shared_ptr<T> CreateComponent();
 
 		void init(unsigned int width_to_set, unsigned int height_to_set, std::string_view title_to_set);
 
@@ -45,13 +48,14 @@ ENGINE_BEGIN
 
 		std::shared_ptr<sf::RenderWindow> render_window_;
 
-		std::unique_ptr<SceneManager> scene_manager_;
-		std::unique_ptr<InputComponent> input_component_;
-		std::unique_ptr<RenderComponent> render_component_;
+		std::shared_ptr<SceneManager> scene_manager_;
+		std::shared_ptr<InputComponent> input_component_;
+		std::shared_ptr<RendererComponent> renderer_component_;
 
-		std::vector<std::unique_ptr<EngineComponent>> engine_components_;
+		std::vector<std::shared_ptr<EngineComponent>> engine_components_;
 	};
 
 
-
 ENGINE_END
+
+

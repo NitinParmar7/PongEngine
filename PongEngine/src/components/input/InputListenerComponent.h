@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
-#include "CoreTypeDef.h"
-#include "core/GameObjectComponent.h"
+#include "../src/CoreTypeDef.h"
+#include "../core/GameObjectComponent.h"
 
 ENGINE_BEGIN
     typedef sf::Keyboard::Key Key;

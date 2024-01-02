@@ -2,8 +2,8 @@
 
 ENGINE_BEGIN
 
-GameObjectComponent::~GameObjectComponent()
-= default;
+// GameObjectComponent::~GameObjectComponent()
+// = default;
 
 void GameObjectComponent::init(const GameObject* parent)
 {

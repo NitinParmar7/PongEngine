@@ -1,9 +1,9 @@
 ﻿#pragma once
 #include <memory>
 #include <SFML/Graphics/RenderWindow.hpp>
-#include "CoreTypeDef.h"
+#include "../src/CoreTypeDef.h"
 #include "DrawableEntity.h"
-#include "core/GameObjectComponent.h"
+#include "../core/GameObjectComponent.h"
 
 
 

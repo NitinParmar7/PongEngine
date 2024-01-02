@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "CoreTypeDef.h"
+#include "../src/CoreTypeDef.h"
 
 ENGINE_BEGIN
 

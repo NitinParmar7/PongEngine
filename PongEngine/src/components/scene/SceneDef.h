@@ -1,8 +1,7 @@
 ﻿#pragma once
 #include <cstdint>
 
-#include "../../core/CoreTypeDef.h"
-
+#include "../../CoreTypeDef.h"
 
 ENGINE_BEGIN
 

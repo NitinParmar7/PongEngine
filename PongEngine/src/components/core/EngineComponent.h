@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "BaseComponent.h"
-#include "../../core/CoreTypeDef.h"
+#include "../../CoreTypeDef.h"
 
 ENGINE_BEGIN
 
@@ -9,6 +9,7 @@ class EngineCore;
 class EngineComponent : public BaseComponent
 {
 public:
+    ~EngineComponent() override;
 
     virtual void init(const EngineCore* parent);
 

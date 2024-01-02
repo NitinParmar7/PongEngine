@@ -2,7 +2,6 @@
 #include <deque>
 #include <memory>
 #include <vector>
-
 #include "SceneDef.h"
 #include "Scene.h"
 #include "../core/EngineComponent.h"
