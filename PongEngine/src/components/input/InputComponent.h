@@ -4,6 +4,7 @@
 
 #include "CoreTypeDef.h"
 #include "core/EngineComponent.h"
+#include "core/ListableEngineComponent.h"
 
 
 ENGINE_BEGIN
@@ -11,21 +12,15 @@ ENGINE_BEGIN
 
     typedef std::shared_ptr<InputListenerComponent> TypeInputListenerComponent;
 
-    class InputComponent : public EngineComponent
+    class InputComponent : public ListableEngineComponent
     {
     public:
 #pragma region EngineComponent
-        void init(const EngineCore* parent) override = 0;
+        void init(const EngineCore* parent) override;
         void update() override;
-        void end() override = 0;
+        void end() override;
 #pragma endregion
 
-        void AddInputListenerComponent(const TypeInputListenerComponent& input_listener_component);
-
-        bool RemoveInputListenerComponent(const TypeInputListenerComponent& input_listener_component);
-
-    private:
-        std::vector<TypeInputListenerComponent> input_listener_components_;
     };
 
 

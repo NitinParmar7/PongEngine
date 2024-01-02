@@ -10,6 +10,15 @@ ENGINE_BEGIN
     class InputListenerComponent : GameObjectComponent
     {
     public:
+
+#pragma region GameObjectComponent
+        void update() override;
+        void end() override;
+        void init(const GameObject* parent) override;
+        ~InputListenerComponent() override;
+
+#pragma endregion
+
         InputListenerComponent()
             : key_(Key::Unknown)
         {

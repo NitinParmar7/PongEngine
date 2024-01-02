@@ -7,27 +7,28 @@
 
 
 ENGINE_BEGIN
+    void InputComponent::init(const EngineCore* parent)
+    {
+        ListableEngineComponent::init(parent);
+    }
+
     void InputComponent::update()
     {
-        for (const auto& element : input_listener_components_)
+        for (auto& element : components_)
         {
-            if (sf::Keyboard::isKeyPressed(element->GetKey()))
+            if(const auto input_component = std::dynamic_pointer_cast<InputListenerComponent>(element))
             {
-                element->OnClick();
+                if (sf::Keyboard::isKeyPressed(input_component->GetKey()))
+                {
+                    input_component->OnClick();
+                }
             }
         }
     }
 
-    void InputComponent::AddInputListenerComponent(
-        const TypeInputListenerComponent& input_listener_component)
+    void InputComponent::end()
     {
-        input_listener_components_.emplace_back(input_listener_component);
-    }
-
-    bool InputComponent::RemoveInputListenerComponent(
-        const TypeInputListenerComponent& input_listener_component)
-    {
-        return std::erase(input_listener_components_, input_listener_component);
+        ListableEngineComponent::end();
     }
 
 

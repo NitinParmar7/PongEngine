@@ -6,6 +6,7 @@ ENGINE_BEGIN
 class BaseComponent
 {
 public:
+    virtual ~BaseComponent() = 0;
 
     virtual void update() = 0;
 
