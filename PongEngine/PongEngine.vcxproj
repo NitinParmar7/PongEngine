@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\collision\CollisionComponent.cpp" />
+    <ClCompile Include="src\components\collision\CollisionHandler.cpp" />
     <ClCompile Include="src\components\core\EngineComponent.cpp" />
     <ClCompile Include="src\components\core\GameObjectComponent.cpp" />
     <ClCompile Include="src\components\core\ListableEngineComponent.cpp" />
@@ -249,6 +251,9 @@
     <ClCompile Include="src\core\gameobject\GameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\collision\CollisionComponent.h" />
+    <ClInclude Include="src\components\collision\CollisionDef.h" />
+    <ClInclude Include="src\components\collision\CollisionHandler.h" />
     <ClInclude Include="src\components\core\BaseComponent.h" />
     <ClInclude Include="src\components\core\EngineComponent.h" />
     <ClInclude Include="src\components\core\GameObjectComponent.h" />
