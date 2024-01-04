@@ -3,9 +3,12 @@
 
 ENGINE_BEGIN
 
-class BaseComponent
+class BaseComponent  // NOLINT(cppcoreguidelines-special-member-functions)
 {
 public:
+
+    BaseComponent() = default;
+
     virtual ~BaseComponent() = 0;
 
     virtual void update() = 0;

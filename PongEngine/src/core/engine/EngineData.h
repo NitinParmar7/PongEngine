@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿// ReSharper disable CppInconsistentNaming
+#pragma once
 #include "../../CoreTypeDef.h"
 
 ENGINE_BEGIN

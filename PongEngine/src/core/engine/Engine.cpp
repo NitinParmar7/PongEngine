@@ -72,6 +72,40 @@ ENGINE_BEGIN
 
     }
 
+    std::shared_ptr<EngineData> EngineCore::GetData() const
+    { return data_; }
+
+    std::shared_ptr<CollisionHandler> EngineCore::GetCollisionHandler() const
+    { return collision_handler_; }
+
+    std::shared_ptr<sf::RenderWindow> EngineCore::GetRenderWindow() const
+    { 	return render_window_; 	}
+
+    std::shared_ptr<InputComponent> EngineCore::GetInputComponent() const
+    {
+        return input_component_;
+    }
+
+    std::shared_ptr<RendererComponent> EngineCore::GetRendererComponent() const
+    {
+        return renderer_component_;
+    }
+
+    std::shared_ptr<CollisionHandler> EngineCore::collision_handler() const
+    {
+        return collision_handler_;
+    }
+
+    std::vector<std::shared_ptr<EngineComponent>> EngineCore::GetEngineComponents() const
+    {
+        return engine_components_;
+    }
+
+    std::shared_ptr<SceneManager> EngineCore::GetSceneManager() const
+    {
+        return scene_manager_;
+    }
+
 
 ENGINE_END
 

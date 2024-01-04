@@ -4,9 +4,9 @@
 
 #include "EngineData.h"
 #include "../../CoreTypeDef.h"
+#include "../../components/collision/CollisionHandler.h"
 
 ENGINE_BEGIN
-
 	class EngineComponent;
 	class RendererComponent;
 	class InputComponent;
@@ -37,8 +37,19 @@ ENGINE_BEGIN
 
 		void run();
 
-		[[nodiscard]] std::shared_ptr<EngineData> GetData() const { return  data_; }
+		[[nodiscard]] std::shared_ptr<EngineData> GetData() const;
 
+		[[nodiscard]] std::shared_ptr<CollisionHandler> GetCollisionHandler() const;
+
+		[[nodiscard]] std::shared_ptr<sf::RenderWindow> GetRenderWindow() const;
+
+		[[nodiscard]] std::shared_ptr<SceneManager> GetSceneManager() const;
+
+		[[nodiscard]] std::shared_ptr<InputComponent> GetInputComponent() const;
+
+		[[nodiscard]] std::shared_ptr<RendererComponent> GetRendererComponent() const;
+
+		[[nodiscard]] std::vector<std::shared_ptr<EngineComponent>> GetEngineComponents() const;
 
 	private:
 
@@ -49,8 +60,10 @@ ENGINE_BEGIN
 		std::shared_ptr<sf::RenderWindow> render_window_;
 
 		std::shared_ptr<SceneManager> scene_manager_;
+
 		std::shared_ptr<InputComponent> input_component_;
 		std::shared_ptr<RendererComponent> renderer_component_;
+		std::shared_ptr<CollisionHandler> collision_handler_;
 
 		std::vector<std::shared_ptr<EngineComponent>> engine_components_;
 	};

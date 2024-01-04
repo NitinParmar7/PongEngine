@@ -48,7 +48,13 @@
     <ClCompile Include="src\components\core\ListableEngineComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\graphics\RenderComponent.cpp">
+    <ClCompile Include="src\components\collision\CollisionComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\collision\CollisionHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\graphics\RendererComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +104,16 @@
     <ClInclude Include="src\components\core\ListableEngineComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\graphics\RenderComponent.h">
+    <ClInclude Include="src\components\collision\CollisionComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\collision\CollisionDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\collision\CollisionHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\graphics\RendererComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
