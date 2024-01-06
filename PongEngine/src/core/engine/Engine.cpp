@@ -91,11 +91,6 @@ ENGINE_BEGIN
         return renderer_component_;
     }
 
-    std::shared_ptr<CollisionHandler> EngineCore::collision_handler() const
-    {
-        return collision_handler_;
-    }
-
     std::vector<std::shared_ptr<EngineComponent>> EngineCore::GetEngineComponents() const
     {
         return engine_components_;

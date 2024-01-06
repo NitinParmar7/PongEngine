@@ -16,6 +16,7 @@
     <ClCompile Include="src\components\core\EngineComponent.cpp" />
     <ClCompile Include="src\components\core\GameObjectComponent.cpp" />
     <ClCompile Include="src\components\core\ListableEngineComponent.cpp" />
+    <ClCompile Include="src\components\core\ListableGameObjectComponent.cpp" />
     <ClCompile Include="src\components\graphics\DrawableEntity.cpp" />
     <ClCompile Include="src\components\graphics\GraphicComponent.cpp" />
     <ClCompile Include="src\components\graphics\RendererComponent.cpp" />
@@ -258,6 +259,7 @@
     <ClInclude Include="src\components\core\EngineComponent.h" />
     <ClInclude Include="src\components\core\GameObjectComponent.h" />
     <ClInclude Include="src\components\core\ListableEngineComponent.h" />
+    <ClInclude Include="src\components\core\ListableGameObjectComponent.h" />
     <ClInclude Include="src\components\graphics\DrawableEntity.h" />
     <ClInclude Include="src\components\graphics\GraphicComponent.h" />
     <ClInclude Include="src\components\graphics\RendererComponent.h" />

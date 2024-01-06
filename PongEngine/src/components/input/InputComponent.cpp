@@ -14,7 +14,7 @@ ENGINE_BEGIN
 
     void InputComponent::update()
     {
-        for (auto& element : components_)
+        for (auto& element : m_components_)
         {
             if(const auto input_component = std::dynamic_pointer_cast<InputListenerComponent>(element))
             {

@@ -11,12 +11,11 @@ class GameObject;
 class GameObjectComponent : public BaseComponent
 {
 public:
-    GameObjectComponent(const GameObjectComponent& other) = default;
+    GameObjectComponent(const GameObjectComponent& other);
 
-    GameObjectComponent(GameObjectComponent&& other) noexcept
-        : BaseComponent(other)
-    {
-    }
+    GameObjectComponent(GameObjectComponent&& other) noexcept;
+
+    GameObjectComponent() = default;
 
     GameObjectComponent& operator=(const GameObjectComponent& other)
     {

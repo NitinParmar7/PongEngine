@@ -30,7 +30,7 @@ public:
 
 protected:
 
-    std::vector<LComponent> components_;
+    std::vector<LComponent> m_components_;
 };
 
 ENGINE_END

@@ -2,6 +2,6 @@
 
 int main()
 {
-	ENGINE.init(1080, 720, "title");
+	PONG_ENGINE.init(1080, 720, "title");
 	return EXIT_SUCCESS;
 }

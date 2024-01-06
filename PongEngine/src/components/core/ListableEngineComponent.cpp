@@ -4,7 +4,7 @@
 ENGINE_BEGIN
     ListableEngineComponent::~ListableEngineComponent()
     {
-        components_.clear();
+        m_components_.clear();
     }
 
     void ListableEngineComponent::init(const EngineCore* parent)
@@ -22,12 +22,12 @@ ENGINE_BEGIN
 
     void ListableEngineComponent::AddComponent(const LComponent& component)
     {
-        components_.emplace_back(component);
+        m_components_.emplace_back(component);
     }
 
     bool ListableEngineComponent::RemoveComponent(const LComponent& component)
     {
-         return std::erase(components_, component);
+         return std::erase(m_components_, component);
     }
 
 ENGINE_END

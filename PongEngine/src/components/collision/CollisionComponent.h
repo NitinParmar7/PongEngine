@@ -4,58 +4,43 @@
 #include "PongEngine.h"
 #include "../../CoreTypeDef.h"
 #include "../core/GameObjectComponent.h"
+#include "components/core/ListableGameObjectComponent.h"
 
 ENGINE_BEGIN
-
-class CollisionComponent : public GameObjectComponent
-{
-public:
-
-    CollisionComponent(const CollisionComponent& other) = default;
-
-    CollisionComponent(CollisionComponent&& other) noexcept
-        : GameObjectComponent(std::move(other)),
-          collision_profile_(other.collision_profile_)
+    class CollisionComponent : public ListableGameObjectComponent
     {
-    }
+    public:
+        CollisionComponent(const CollisionComponent& other);
 
-    CollisionComponent& operator=(const CollisionComponent& other)
-    {
-        if (this == &other)
-            return *this;
-        GameObjectComponent::operator =(other);
-        collision_profile_ = other.collision_profile_;
-        return *this;
-    }
+        CollisionComponent(CollisionComponent&& other) noexcept;
 
-    CollisionComponent& operator=(CollisionComponent&& other) noexcept
-    {
-        if (this == &other)
-            return *this;
-        GameObjectComponent::operator =(std::move(other));
-        collision_profile_ = other.collision_profile_;
-        return *this;
-    }
+        CollisionComponent& operator=(const CollisionComponent& other);
 
-    ~CollisionComponent() override;
+        CollisionComponent& operator=(CollisionComponent&& other) noexcept;
 
-    CollisionComponent()
-        : collision_profile_(ECOLLISION_PROFILE::No_Collision) {};
+        ~CollisionComponent() override;
 
-    explicit CollisionComponent(const ECOLLISION_PROFILE profile)
-        : collision_profile_(profile)
-    {
-        ENGINE.GetCollisionHandler()->AddComponent(std::shared_ptr<CollisionComponent>(this));
-    }
+        CollisionComponent();;
 
-    [[nodiscard]] virtual  sf::FloatRect GetGlobalBounds() const = 0;
+        explicit CollisionComponent(const std::shared_ptr<ListableEngineComponent>& engine_component,
+                                    const ECOLLISION_PROFILE profile);
 
-    [[nodiscard]] virtual ECOLLISION_PROFILE GetCollisionProfile() const {return collision_profile_;}
+        explicit CollisionComponent(const std::shared_ptr<ListableEngineComponent>& engine_component,
+                                    const ECOLLISION_PROFILE profile, const std::shared_ptr<sf::Shape>& shared_ptr);
 
 
-private:
+        [[nodiscard]] virtual sf::FloatRect GetGlobalBounds() const;
 
-    ECOLLISION_PROFILE collision_profile_;
-};
+        [[nodiscard]] virtual ECOLLISION_PROFILE GetCollisionProfile() const;
+
+        virtual void OnHit(const std::shared_ptr<CollisionComponent>& other);
+
+        virtual void OnOverlap(const std::shared_ptr<CollisionComponent>& other);
+
+    private:
+        ECOLLISION_PROFILE m_collision_profile_;
+
+        std::shared_ptr<sf::Shape> m_shape_bounds;
+    };
 
 ENGINE_END

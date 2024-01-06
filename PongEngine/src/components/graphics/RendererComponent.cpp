@@ -22,7 +22,7 @@ ENGINE_BEGIN
 
     void RendererComponent::Draw( std::shared_ptr<sf::RenderWindow>& window) const
     {
-    for (const auto& element : components_)
+    for (const auto& element : m_components_)
     {
         if (const auto graphic_component = std::dynamic_pointer_cast<GraphicComponent>(element))
         {

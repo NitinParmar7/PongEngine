@@ -4,5 +4,5 @@
 #define ENGINE_BEGIN namespace GE {
 #define ENGINE_END   }
 
-#define ENGINE GE::EngineCore::get()
+#define PONG_ENGINE GE::EngineCore::get()
 

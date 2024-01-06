@@ -4,12 +4,11 @@
 #include "../src/CoreTypeDef.h"
 #include "DrawableEntity.h"
 #include "../core/GameObjectComponent.h"
-
+#include "components/core/ListableGameObjectComponent.h"
 
 
 ENGINE_BEGIN
-
-class GraphicComponent : public GameObjectComponent
+class GraphicComponent : public ListableGameObjectComponent
 {
 public:
 

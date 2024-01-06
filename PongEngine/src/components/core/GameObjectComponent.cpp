@@ -2,6 +2,9 @@
 
 ENGINE_BEGIN
 
+GameObjectComponent::GameObjectComponent(GameObjectComponent&& other) noexcept: BaseComponent(other)
+    {
+    }
 
 void GameObjectComponent::init(const GameObject* parent)
 {
