@@ -16,7 +16,6 @@ ENGINE_BEGIN
     class EngineCore
     {
     public:
-        virtual ~EngineCore() = default;
 
         EngineCore(const EngineCore&) = delete;
 
@@ -67,6 +66,8 @@ ENGINE_BEGIN
     protected:
 
         EngineCore() = default;
+
+        virtual ~EngineCore() = default;
 
     private:
 

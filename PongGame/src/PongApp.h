@@ -4,6 +4,9 @@
 class PongApp final : public GE::EngineCore
 {
 public:
+
+    PongApp() =default;
+
     PongApp(const PongApp& other) = delete;
 
     PongApp(PongApp&& other) noexcept = delete;
@@ -24,9 +27,6 @@ public:
     ~PongApp() override;
 
 
-private:
-
-    PongApp() = default;
 };
 
 
