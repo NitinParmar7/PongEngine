@@ -43,11 +43,11 @@ public:
 
     [[nodiscard]] virtual inline uint8_t getSceneID() const {return  m_scene_id_;};
 
-    template<typename T, typename... Args>
-    std::shared_ptr<T> AddGameObject(Args&&... args);
-
-    template<typename T>
-    void RemoveGameObjects(const std::shared_ptr<T>& game_object);
+    // template<typename T, typename... Args>
+    // std::shared_ptr<T> AddGameObject(Args&&... args);
+    //
+    // template<typename T>
+    // void RemoveGameObjects(const std::shared_ptr<T>& game_object);
 
     [[nodiscard]] std::vector<std::shared_ptr<GameObject>> GetGameObjects() const;
 

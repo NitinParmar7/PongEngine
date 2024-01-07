@@ -251,6 +251,7 @@
       <LibCompiled>true</LibCompiled>
     </ClCompile>
     <ClCompile Include="src\core\gameobject\GameObject.cpp" />
+    <ClCompile Include="src\core\Helper.cpp" />
     <ClCompile Include="src\main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -348,6 +349,7 @@
     <ClInclude Include="src\core\engine\Engine.h" />
     <ClInclude Include="src\core\engine\EngineData.h" />
     <ClInclude Include="src\core\gameobject\GameObject.h" />
+    <ClInclude Include="src\core\Helper.h" />
     <ClInclude Include="src\PongEngine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
