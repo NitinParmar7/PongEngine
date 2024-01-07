@@ -10,6 +10,14 @@ ENGINE_BEGIN
 
 struct EngineData
 {
+    EngineData()
+        : WIDTH(640),
+          HEIGHT(480),
+          TITLE("PongEngine")
+    {
+    }
+
+
     EngineData(const unsigned width, const unsigned height, const std::string_view& title)
         : WIDTH(width),
           HEIGHT(height),

@@ -11,12 +11,6 @@
 
 ENGINE_BEGIN
 
-
-
-
-
-
-
     template <class T>
     std::shared_ptr<T> EngineCore::CreateComponent()
     {
@@ -26,14 +20,15 @@ ENGINE_BEGIN
     }
 
 
-    void EngineCore::init(unsigned int width_to_set, unsigned int height_to_set, std::string_view title_to_set)
+
+
+    void EngineCore::init()
     {
-        m_data_ =  std::make_shared<EngineData>(width_to_set, height_to_set, title_to_set);
+        m_data_ =  GetData();
         m_render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(m_data_->WIDTH, m_data_->HEIGHT), static_cast<std::string>(m_data_->TITLE));
         m_scene_manager_ =  CreateComponent<SceneManager>();
         m_input_component_ = CreateComponent<InputComponent>();
         m_renderer_component_ = CreateComponent<RendererComponent>();
-        run();
     }
 
     // ReSharper disable once CppMemberFunctionMayBeConst
@@ -74,14 +69,30 @@ ENGINE_BEGIN
 
     }
 
+    void EngineCore::exit()
+    {
+        m_collision_handler_.reset();
+        m_render_window_.reset();
+        m_input_component_.reset();
+        m_renderer_component_.reset();
+        m_scene_manager_.reset();
+        m_engine_components_.clear();
+    }
+
     std::shared_ptr<EngineData> EngineCore::GetData() const
-    { return m_data_; }
+    {
+        return std::make_shared<EngineData>();
+    }
 
     std::shared_ptr<CollisionHandler> EngineCore::GetCollisionHandler() const
-    { return m_collision_handler_; }
+    {
+        return m_collision_handler_;
+    }
 
     std::shared_ptr<sf::RenderWindow> EngineCore::GetRenderWindow() const
-    { 	return m_render_window_; 	}
+    {
+        return m_render_window_;
+    }
 
     std::shared_ptr<InputComponent> EngineCore::GetInputComponent() const
     {
@@ -100,17 +111,17 @@ ENGINE_BEGIN
 
     std::string_view EngineCore::GetTitle() const
     {
-        return {"Engine"};
+        return m_data_->TITLE;
     }
 
     unsigned EngineCore::GetWidth() const
     {
-        return Default_Width;
+        return m_data_->WIDTH;
     }
 
     unsigned EngineCore::GetHeight() const
     {
-        return Default_Height;
+        return m_data_->HEIGHT;
     }
 
     std::shared_ptr<SceneManager> EngineCore::GetSceneManager() const
