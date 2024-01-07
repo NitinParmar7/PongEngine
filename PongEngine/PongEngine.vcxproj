@@ -22,6 +22,7 @@
     <ClCompile Include="src\components\graphics\RendererComponent.cpp" />
     <ClCompile Include="src\components\input\InputComponent.cpp" />
     <ClCompile Include="src\components\input\InputListenerComponent.cpp" />
+    <ClCompile Include="src\components\scene\Scene.cpp" />
     <ClCompile Include="src\components\scene\SceneManager.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
