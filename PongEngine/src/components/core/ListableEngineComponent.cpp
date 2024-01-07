@@ -2,6 +2,11 @@
 
 
 ENGINE_BEGIN
+    ListableEngineComponent::ListableEngineComponent(const EngineCore* parent): EngineComponent(parent)
+    {
+        m_components_.clear();
+    }
+
     ListableEngineComponent::~ListableEngineComponent()
     {
         m_components_.clear();

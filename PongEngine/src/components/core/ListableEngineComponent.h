@@ -6,14 +6,16 @@
 
 
 ENGINE_BEGIN
+class ListableGameObjectComponent;
 
-class GameObjectComponent;
 
-typedef std::shared_ptr<GameObjectComponent> LComponent;
+typedef std::shared_ptr<ListableGameObjectComponent> LComponent;
 
 class ListableEngineComponent : public EngineComponent
 {
 public:
+    explicit ListableEngineComponent(const EngineCore* parent);
+
     ~ListableEngineComponent() override;
 
 #pragma region EngineComponent

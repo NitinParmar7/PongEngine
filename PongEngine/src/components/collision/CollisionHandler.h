@@ -28,7 +28,7 @@ public:
 
 #pragma endregion
 
-    void CopyCollisionComponents(const Components& components, ECOLLISION_PROFILE profile);
+    void CopyCollisionComponents(Components& components, ECOLLISION_PROFILE profile);
 
     static void CheckOnHit(const Components& components);
 

@@ -9,7 +9,7 @@ public:
 
     BaseComponent() = default;
 
-    virtual ~BaseComponent() = 0;
+    virtual ~BaseComponent() = default;
 
     virtual void update() = 0;
 

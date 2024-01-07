@@ -17,21 +17,9 @@ public:
 
     GameObjectComponent() = default;
 
-    GameObjectComponent& operator=(const GameObjectComponent& other)
-    {
-        if (this == &other)
-            return *this;
-        BaseComponent::operator =(other);
-        return *this;
-    }
+    GameObjectComponent& operator=(const GameObjectComponent& other);
 
-    GameObjectComponent& operator=(GameObjectComponent&& other) noexcept
-    {
-        if (this == &other)
-            return *this;
-        BaseComponent::operator =(other);
-        return *this;
-    }
+    GameObjectComponent& operator=(GameObjectComponent&& other) noexcept;
 
 
     virtual void init(const GameObject* parent);

@@ -13,7 +13,12 @@ ENGINE_BEGIN
     class InputComponent : public ListableEngineComponent
     {
     public:
+
+        explicit InputComponent(const EngineCore* parent);
+
 #pragma region EngineComponent
+
+
         void init(const EngineCore* parent) override;
         void update() override;
         void end() override;

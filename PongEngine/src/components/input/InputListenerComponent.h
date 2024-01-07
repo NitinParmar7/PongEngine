@@ -2,12 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include "../src/CoreTypeDef.h"
 #include "../core/GameObjectComponent.h"
+#include "components/core/ListableGameObjectComponent.h"
 
 ENGINE_BEGIN
     typedef sf::Keyboard::Key Key;
 
 
-    class InputListenerComponent : GameObjectComponent
+    class InputListenerComponent : ListableGameObjectComponent
     {
     public:
 

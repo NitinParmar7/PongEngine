@@ -3,6 +3,10 @@
 #include "GraphicComponent.h"
 
 ENGINE_BEGIN
+    RendererComponent::RendererComponent(const EngineCore* parent): ListableEngineComponent(parent)
+    {
+    }
+
     void RendererComponent::init(const EngineCore* parent)
     {
         ListableEngineComponent::init(parent);

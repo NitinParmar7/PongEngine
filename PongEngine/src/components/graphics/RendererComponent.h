@@ -10,7 +10,11 @@ ENGINE_BEGIN
     class RendererComponent : public ListableEngineComponent
 {
 public:
+
+    explicit RendererComponent(const EngineCore* parent);
+
 #pragma region EngineComponent
+
     void init(const EngineCore* parent) override;
     void update() override;
     void end() override;

@@ -6,6 +6,22 @@ GameObjectComponent::GameObjectComponent(GameObjectComponent&& other) noexcept: 
     {
     }
 
+GameObjectComponent& GameObjectComponent::operator=(const GameObjectComponent& other)
+{
+    if (this == &other)
+        return *this;
+    BaseComponent::operator =(other);
+    return *this;
+}
+
+GameObjectComponent& GameObjectComponent::operator=(GameObjectComponent&& other) noexcept
+{
+    if (this == &other)
+        return *this;
+    BaseComponent::operator =(other);
+    return *this;
+}
+
 void GameObjectComponent::init(const GameObject* parent)
 {
 }

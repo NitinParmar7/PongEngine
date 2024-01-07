@@ -4,6 +4,9 @@
 
 ENGINE_BEGIN
 
+#define Default_Width 640;
+
+#define Default_Height 480;
 
 struct EngineData
 {

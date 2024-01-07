@@ -15,13 +15,14 @@ public:
 
 #pragma region EngineComponent
 
+	explicit SceneManager(const EngineCore* parent);
+
 	void init(const EngineCore* parent) override;
 	void update() override;
 	void end() override;
 
 #pragma endregion
 
-	SceneManager() = default;
 
 	void AddScene(SceneBehaviourData<Scene> scene_to_add);
 
@@ -35,11 +36,11 @@ public:
 
 private:
 
-	std::vector<std::unique_ptr<Scene>>::iterator current_scene_;
+	std::vector<std::unique_ptr<Scene>>::iterator m_current_scene_;
 
-	std::vector<std::unique_ptr<Scene>> scenes_;
+	std::vector<std::unique_ptr<Scene>> m_scenes_;
 
-	std::deque<SceneBehaviourData<Scene>> scene_behavior_;
+	std::deque<SceneBehaviourData<Scene>> m_scene_behavior_;
 
 };
 

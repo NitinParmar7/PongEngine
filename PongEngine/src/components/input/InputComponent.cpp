@@ -7,6 +7,10 @@
 
 
 ENGINE_BEGIN
+    InputComponent::InputComponent(const EngineCore* parent): ListableEngineComponent(parent)
+    {
+    }
+
     void InputComponent::init(const EngineCore* parent)
     {
         ListableEngineComponent::init(parent);

@@ -17,8 +17,7 @@ ENGINE_BEGIN
 	{
 
 	public:
-
-		~EngineCore() = default;
+		virtual ~EngineCore() = default;
 	
 		EngineCore(const EngineCore&) = delete;
 
@@ -28,7 +27,13 @@ ENGINE_BEGIN
 
 		EngineCore& operator=(const EngineCore&&) = delete;
 
-		static EngineCore& get();
+		template<typename T>
+		static std::shared_ptr<EngineCore> get()
+		{
+			static_assert(std::is_base_of_v<EngineCore, T>, "T must be derived from EngineCore");
+			static std::shared_ptr<EngineCore> instance(new EngineCore());
+			return instance;
+		}
 
 		template<class T>
 		std::shared_ptr<T> CreateComponent();
@@ -51,22 +56,34 @@ ENGINE_BEGIN
 
 		[[nodiscard]] std::vector<std::shared_ptr<EngineComponent>> GetEngineComponents() const;
 
+		[[nodiscard]] virtual std::string_view GetTitle() const;
+
+		[[nodiscard]] virtual unsigned int GetWidth() const;
+
+		[[nodiscard]] virtual unsigned  int GetHeight() const;
+
 	private:
 
 		EngineCore() = default;
 
-		std::shared_ptr<EngineData> data_;
 
-		std::shared_ptr<sf::RenderWindow> render_window_;
+		std::shared_ptr<EngineData> m_data_;
 
-		std::shared_ptr<SceneManager> scene_manager_;
+		std::shared_ptr<sf::RenderWindow> m_render_window_;
 
-		std::shared_ptr<InputComponent> input_component_;
-		std::shared_ptr<RendererComponent> renderer_component_;
-		std::shared_ptr<CollisionHandler> collision_handler_;
+		std::shared_ptr<SceneManager> m_scene_manager_;
 
-		std::vector<std::shared_ptr<EngineComponent>> engine_components_;
+		std::shared_ptr<InputComponent> m_input_component_;
+		std::shared_ptr<RendererComponent> m_renderer_component_;
+		std::shared_ptr<CollisionHandler> m_collision_handler_;
+
+		std::vector<std::shared_ptr<EngineComponent>> m_engine_components_;
 	};
+
+
+	std::shared_ptr<EngineCore> create_engine();
+
+
 
 
 ENGINE_END

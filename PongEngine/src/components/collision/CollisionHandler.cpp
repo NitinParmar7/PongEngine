@@ -41,15 +41,15 @@ ENGINE_BEGIN
         CheckOverlaps(m_hitting_collision_components, m_overlapping_collision_components);
     }
 
-    void CollisionHandler::CopyCollisionComponents(const Components& components, ECOLLISION_PROFILE profile)
+    void CollisionHandler::CopyCollisionComponents( Components& components, ECOLLISION_PROFILE profile)
     {
-        components.empty();
-        std::copy_if(m_components_.begin(), m_components_.end(), std::back_inserter(components),
+        components.clear();
+        std::transform(m_components_.begin(), m_components_.end(), std::back_inserter(components),
                      [profile](const LComponent& ptr)
                      {
                          const std::shared_ptr<CollisionComponent> collision_component = std::dynamic_pointer_cast<
                              CollisionComponent>(ptr);
-                         return collision_component != nullptr && collision_component->GetCollisionProfile() == profile;
+                         return (collision_component != nullptr && collision_component->GetCollisionProfile() == profile) ? collision_component : nullptr;
                      });
     }
 
