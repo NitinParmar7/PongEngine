@@ -1,10 +1,13 @@
 ﻿#pragma once
 #include <cstdint>
+#include <memory>
+#include <vector>
+
 #include "../../CoreTypeDef.h"
+#include "../../core/gameobject/GameObject.h"
 
 ENGINE_BEGIN
-
-class Scene
+    class Scene
 {
 public:
     Scene(const Scene& other)
@@ -38,12 +41,25 @@ public:
 
     virtual void ExitScene() = 0;
 
-    [[nodiscard]] virtual inline uint8_t getSceneID() const {return  scene_id_;};
+    [[nodiscard]] virtual inline uint8_t getSceneID() const {return  m_scene_id_;};
 
-private:
+    template<typename T, typename... Args>
+    std::shared_ptr<T> AddGameObject(Args&&... args);
 
-    uint8_t scene_id_;
+    template<typename T>
+    void RemoveGameObjects(const std::shared_ptr<T>& game_object);
+
+    [[nodiscard]] std::vector<std::shared_ptr<GameObject>> GetGameObjects() const;
+
+protected:
+
+    uint8_t m_scene_id_;
+
+    std::vector<std::shared_ptr<GameObject>> m_game_objects;
 };
+
+
+
 
 ENGINE_END
 
