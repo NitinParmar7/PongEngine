@@ -11,7 +11,7 @@ ENGINE_BEGIN
     {
     }
 
-    CollisionHandler& GE::CollisionHandler::operator=(const CollisionHandler& other)
+    CollisionHandler& CollisionHandler::operator=(const CollisionHandler& other)
     {
         if (this == &other)
             return *this;
@@ -19,7 +19,7 @@ ENGINE_BEGIN
         return *this;
     }
 
-    CollisionHandler& GE::CollisionHandler::operator=(CollisionHandler&& other) noexcept
+    CollisionHandler& CollisionHandler::operator=(CollisionHandler&& other) noexcept
     {
         if (this == &other)
             return *this;
@@ -41,16 +41,19 @@ ENGINE_BEGIN
         CheckOverlaps(m_hitting_collision_components, m_overlapping_collision_components);
     }
 
-    void CollisionHandler::CopyCollisionComponents( Components& components, ECOLLISION_PROFILE profile)
+    void CollisionHandler::CopyCollisionComponents(Components& components, ECOLLISION_PROFILE profile)
     {
         components.clear();
         std::transform(m_components_.begin(), m_components_.end(), std::back_inserter(components),
-                     [profile](const LComponent& ptr)
-                     {
-                         const std::shared_ptr<CollisionComponent> collision_component = std::dynamic_pointer_cast<
-                             CollisionComponent>(ptr);
-                         return (collision_component != nullptr && collision_component->GetCollisionProfile() == profile) ? collision_component : nullptr;
-                     });
+                       [profile](const LComponent& ptr)
+                       {
+                           const std::shared_ptr<CollisionComponent> collision_component = std::dynamic_pointer_cast<
+                               CollisionComponent>(ptr);
+                           return (collision_component != nullptr && collision_component->GetCollisionProfile() ==
+                                      profile)
+                                      ? collision_component
+                                      : nullptr;
+                       });
     }
 
     void CollisionHandler::CheckOnHit(const Components& components)
@@ -78,7 +81,8 @@ ENGINE_BEGIN
 
             for (const auto& overlap_component : overlap_components)
             {
-                if (const auto& rect2 = overlap_component->GetGlobalBounds(); rect1.intersects(rect2)) {
+                if (const auto& rect2 = overlap_component->GetGlobalBounds(); rect1.intersects(rect2))
+                {
                     hit->OnOverlap(overlap_component);
                     overlap_component->OnOverlap(hit);
                 }

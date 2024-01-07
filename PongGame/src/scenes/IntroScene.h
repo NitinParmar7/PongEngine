@@ -11,8 +11,5 @@ public:
     void UpdateScene() override;
     void ExitScene() override;
 
-
 private:
-
-
 };

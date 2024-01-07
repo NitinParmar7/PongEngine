@@ -1,5 +1,4 @@
-﻿
-#include "InputComponent.h"
+﻿#include "InputComponent.h"
 
 #include <SFML/Window/Keyboard.hpp>
 
@@ -20,7 +19,7 @@ ENGINE_BEGIN
     {
         for (auto& element : m_components_)
         {
-            if(const auto input_component = std::dynamic_pointer_cast<InputListenerComponent>(element))
+            if (const auto input_component = std::dynamic_pointer_cast<InputListenerComponent>(element))
             {
                 if (sf::Keyboard::isKeyPressed(input_component->GetKey()))
                 {

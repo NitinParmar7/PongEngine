@@ -1,7 +1,6 @@
 ﻿#include "InputListenerComponent.h"
 
 ENGINE_BEGIN
-
     void InputListenerComponent::update()
     {
     }
@@ -17,7 +16,7 @@ ENGINE_BEGIN
 
     InputListenerComponent::~InputListenerComponent()
     {
-        pressed_= false;
+        pressed_ = false;
     }
 
     void InputListenerComponent::OnClick()

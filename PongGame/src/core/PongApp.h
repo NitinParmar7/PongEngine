@@ -4,8 +4,7 @@
 class PongApp final : public GE::EngineCore
 {
 public:
-
-    PongApp() =default;
+    PongApp() = default;
 
     PongApp(const PongApp& other) = delete;
 
@@ -25,10 +24,7 @@ public:
 #pragma endregion
 
     ~PongApp() override;
-
-
 };
-
 
 
 std::shared_ptr<GE::EngineCore> GE::create_engine()

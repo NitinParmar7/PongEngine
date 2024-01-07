@@ -16,7 +16,6 @@ ENGINE_BEGIN
     class EngineCore
     {
     public:
-
         EngineCore(const EngineCore&) = delete;
 
         EngineCore(const EngineCore&&) = delete;
@@ -62,15 +61,12 @@ ENGINE_BEGIN
 
         [[nodiscard]] virtual unsigned int GetHeight() const;
 
-
     protected:
-
         EngineCore() = default;
 
         virtual ~EngineCore() = default;
 
     private:
-
         std::shared_ptr<EngineData> m_data_;
 
         std::shared_ptr<sf::RenderWindow> m_render_window_;

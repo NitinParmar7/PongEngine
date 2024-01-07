@@ -5,30 +5,29 @@
 
 
 ENGINE_BEGIN
+    class GameObject;
 
-class GameObject;
+    class GameObjectComponent : public BaseComponent
+    {
+    public:
+        GameObjectComponent(const GameObjectComponent& other);
 
-class GameObjectComponent : public BaseComponent
-{
-public:
-    GameObjectComponent(const GameObjectComponent& other);
+        GameObjectComponent(GameObjectComponent&& other) noexcept;
 
-    GameObjectComponent(GameObjectComponent&& other) noexcept;
+        GameObjectComponent() = default;
 
-    GameObjectComponent() = default;
+        GameObjectComponent& operator=(const GameObjectComponent& other);
 
-    GameObjectComponent& operator=(const GameObjectComponent& other);
-
-    GameObjectComponent& operator=(GameObjectComponent&& other) noexcept;
+        GameObjectComponent& operator=(GameObjectComponent&& other) noexcept;
 
 
-    virtual void init(const GameObject* parent);
+        virtual void init(const GameObject* parent);
 
 #pragma region BaseComponent
-    void update() override;
-    void end() override;
-   ~GameObjectComponent() override;
+        void update() override;
+        void end() override;
+        ~GameObjectComponent() override;
 #pragma endregion
-};
+    };
 
 ENGINE_END

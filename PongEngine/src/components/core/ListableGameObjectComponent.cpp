@@ -1,7 +1,6 @@
 ﻿#include "ListableGameObjectComponent.h"
 
 ENGINE_BEGIN
-
     ListableGameObjectComponent::ListableGameObjectComponent(
         const std::shared_ptr<ListableEngineComponent>& engine_component): GameObjectComponent()
     {

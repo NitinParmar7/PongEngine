@@ -6,28 +6,26 @@
 
 ENGINE_BEGIN
     class ListableGameObjectComponent : public GameObjectComponent
-{
-public:
-
-    explicit ListableGameObjectComponent(const GameObjectComponent& other)
-        : GameObjectComponent(other)
     {
+    public:
+        explicit ListableGameObjectComponent(const GameObjectComponent& other)
+            : GameObjectComponent(other)
+        {
+        }
 
-    }
+        explicit ListableGameObjectComponent(GameObjectComponent&& other)
+            : GameObjectComponent(other)
+        {
+        }
 
-    explicit ListableGameObjectComponent(GameObjectComponent&& other)
-        : GameObjectComponent(other)
-    {
-    }
+        explicit ListableGameObjectComponent(const std::shared_ptr<ListableEngineComponent>& engine_component);
 
-    explicit ListableGameObjectComponent(const std::shared_ptr<ListableEngineComponent>& engine_component);
+        ListableGameObjectComponent() = default;
 
-    ListableGameObjectComponent() = default;
+        ~ListableGameObjectComponent() override;
 
-    ~ListableGameObjectComponent() override;
-
-private:
-    std::shared_ptr<ListableEngineComponent> m_engine_component;
-};
+    private:
+        std::shared_ptr<ListableEngineComponent> m_engine_component;
+    };
 
 ENGINE_END

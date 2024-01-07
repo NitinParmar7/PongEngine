@@ -1,10 +1,9 @@
 ﻿#include "DrawableEntity.h"
 
 ENGINE_BEGIN
-
     DrawableEntity::DrawableEntity(const DrawableEntity& other) = default;
 
-    DrawableEntity::DrawableEntity(DrawableEntity&& other) noexcept: sf::Drawable(other)
+    DrawableEntity::DrawableEntity(DrawableEntity&& other) noexcept
     {
     }
 
@@ -12,7 +11,6 @@ ENGINE_BEGIN
     {
         if (this == &other)
             return *this;
-        sf::Drawable::operator =(other);
         return *this;
     }
 
@@ -20,20 +18,16 @@ ENGINE_BEGIN
     {
         if (this == &other)
             return *this;
-        sf::Drawable::operator =(other);
         return *this;
     }
 
     DrawableEntity::~DrawableEntity()
     = default;
 
-    void DrawableEntity::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-}
 
-std::shared_ptr<DrawableEntity> DrawableEntity::GetDrawableEntity() const
-{
-    return nullptr;
-}
+    std::shared_ptr<DrawableEntity> DrawableEntity::GetDrawableEntity() const
+    {
+        return nullptr;
+    }
 
 ENGINE_END

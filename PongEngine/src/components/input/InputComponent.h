@@ -8,12 +8,11 @@
 ENGINE_BEGIN
     class InputListenerComponent;
 
-    typedef std::shared_ptr<InputListenerComponent> TypeInputListenerComponent;
+    using TypeInputListenerComponent = std::shared_ptr<InputListenerComponent>;
 
     class InputComponent : public ListableEngineComponent
     {
     public:
-
         explicit InputComponent(const EngineCore* parent);
 
 #pragma region EngineComponent
@@ -23,7 +22,6 @@ ENGINE_BEGIN
         void update() override;
         void end() override;
 #pragma endregion
-
     };
 
 

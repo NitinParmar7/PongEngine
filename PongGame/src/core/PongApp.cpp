@@ -2,7 +2,7 @@
 
 std::shared_ptr<GE::EngineData> PongApp::GetData() const
 {
-   return std::make_shared<GE::EngineData>(1280,720, "PongApp");
+    return std::make_shared<GE::EngineData>(1280, 720, "PongApp");
 }
 
 
@@ -18,6 +18,3 @@ void PongApp::exit()
 
 PongApp::~PongApp()
 = default;
-
-
-

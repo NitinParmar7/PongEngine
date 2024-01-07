@@ -23,10 +23,10 @@ ENGINE_BEGIN
         CollisionComponent();;
 
         explicit CollisionComponent(const std::shared_ptr<ListableEngineComponent>& engine_component,
-                                    const ECOLLISION_PROFILE profile);
+                                    ECOLLISION_PROFILE profile);
 
         explicit CollisionComponent(const std::shared_ptr<ListableEngineComponent>& engine_component,
-                                    const ECOLLISION_PROFILE profile, const std::shared_ptr<sf::Shape>& shared_ptr);
+                                    ECOLLISION_PROFILE profile, const std::shared_ptr<sf::Shape>& shared_ptr);
 
 
         [[nodiscard]] virtual sf::FloatRect GetGlobalBounds() const;

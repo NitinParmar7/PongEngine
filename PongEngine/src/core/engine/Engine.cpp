@@ -4,13 +4,12 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "../../components/graphics/RendererComponent.h"
+#include "../../components/graphics/core/RendererComponent.h"
 #include "../../components/input/InputComponent.h"
 #include "../../components/scene/SceneManager.h"
 
 
 ENGINE_BEGIN
-
     template <class T>
     std::shared_ptr<T> EngineCore::CreateComponent()
     {
@@ -20,13 +19,12 @@ ENGINE_BEGIN
     }
 
 
-
-
     void EngineCore::init()
     {
-        m_data_ =  GetData();
-        m_render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(m_data_->WIDTH, m_data_->HEIGHT), static_cast<std::string>(m_data_->TITLE));
-        m_scene_manager_ =  CreateComponent<SceneManager>();
+        m_data_ = GetData();
+        m_render_window_ = std::make_shared<sf::RenderWindow>(sf::VideoMode(m_data_->WIDTH, m_data_->HEIGHT),
+                                                              static_cast<std::string>(m_data_->TITLE));
+        m_scene_manager_ = CreateComponent<SceneManager>();
         m_input_component_ = CreateComponent<InputComponent>();
         m_renderer_component_ = CreateComponent<RendererComponent>();
     }
@@ -66,7 +64,6 @@ ENGINE_BEGIN
         {
             element->end();
         }
-
     }
 
     void EngineCore::exit()
@@ -131,4 +128,3 @@ ENGINE_BEGIN
 
 
 ENGINE_END
-

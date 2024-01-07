@@ -5,13 +5,12 @@
 #include "components/core/ListableGameObjectComponent.h"
 
 ENGINE_BEGIN
-    typedef sf::Keyboard::Key Key;
+    using Key = sf::Keyboard::Key;
 
 
     class InputListenerComponent : ListableGameObjectComponent
     {
     public:
-
 #pragma region GameObjectComponent
         void update() override;
         void end() override;

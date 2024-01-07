@@ -38,9 +38,9 @@ ENGINE_BEGIN
         m_parent_ = nullptr;
     }
 
-void EngineComponent::init(const EngineCore* parent)
-{
-    m_parent_ = parent;
-}
+    void EngineComponent::init(const EngineCore* parent)
+    {
+        m_parent_ = parent;
+    }
 
 ENGINE_END

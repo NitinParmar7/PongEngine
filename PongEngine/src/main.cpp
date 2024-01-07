@@ -1,5 +1,4 @@
-﻿
-#include <cstdlib>
+﻿#include <cstdlib>
 
 #include "PongEngine.h"
 

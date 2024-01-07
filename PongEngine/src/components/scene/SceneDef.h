@@ -4,32 +4,38 @@
 #include "../../CoreTypeDef.h"
 
 ENGINE_BEGIN
+    enum class ESCENE_BEHAVIOUR : uint8_t
+    {
+        None,
+        Add_Scene,
+        Remove_Scene,
+        Next_Scene,
+        Previous_Scene
+    };
 
+    template <typename T>
+    struct SceneBehaviourData
+    {
+        ESCENE_BEHAVIOUR behaviour = ESCENE_BEHAVIOUR::None;
+        std::unique_ptr<T> data = nullptr;
 
-enum class ESCENE_BEHAVIOUR : uint8_t
-{
-    None,
-    Add_Scene,
-    Remove_Scene,
-    Next_Scene,
-    Previous_Scene
-};
+        SceneBehaviourData() : data(nullptr)
+        {
+        } // Default-constructed unique_ptr
 
-template<typename T>
-struct SceneBehaviourData
-{
-    ESCENE_BEHAVIOUR behaviour = ESCENE_BEHAVIOUR::None;
-    std::unique_ptr<T> data = nullptr;
+        SceneBehaviourData(std::unique_ptr<T> data = nullptr) : data(std::move(data))
+        {
+        }
 
-    SceneBehaviourData() : data(nullptr) {} // Default-constructed unique_ptr
+        explicit SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour) : behaviour(behaviour), data(nullptr)
+        {
+        }
 
-    SceneBehaviourData(std::unique_ptr<T> data = nullptr) : data(std::move(data)) {}
-
-    explicit SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour) : behaviour(behaviour), data(nullptr) {}
-
-    SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour, std::unique_ptr<T> data)
-        : behaviour(behaviour), data(std::move(data)) {}
-};
+        SceneBehaviourData(const ESCENE_BEHAVIOUR behaviour, std::unique_ptr<T> data)
+            : behaviour(behaviour), data(std::move(data))
+        {
+        }
+    };
 
 
 ENGINE_END

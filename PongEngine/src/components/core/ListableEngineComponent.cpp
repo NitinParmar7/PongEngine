@@ -32,7 +32,7 @@ ENGINE_BEGIN
 
     bool ListableEngineComponent::RemoveComponent(const LComponent& component)
     {
-         return std::erase(m_components_, component);
+        return std::erase(m_components_, component);
     }
 
 ENGINE_END

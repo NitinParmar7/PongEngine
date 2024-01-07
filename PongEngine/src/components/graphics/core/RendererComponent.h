@@ -1,9 +1,8 @@
 ﻿#pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "../../CoreTypeDef.h"
-#include "../core/ListableEngineComponent.h"
-
+#include "../../../CoreTypeDef.h"
+#include "../../core/ListableEngineComponent.h"
 
 
 ENGINE_BEGIN

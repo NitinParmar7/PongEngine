@@ -7,40 +7,39 @@ ENGINE_BEGIN
     class CollisionComponent;
 
 
-typedef std::vector<std::shared_ptr<CollisionComponent>> Components;
+    using Components = std::vector<std::shared_ptr<CollisionComponent>>;
 
-class CollisionHandler : public ListableEngineComponent
-{
-public:
-    CollisionHandler(const CollisionHandler& other);
+    class CollisionHandler : public ListableEngineComponent
+    {
+    public:
+        CollisionHandler(const CollisionHandler& other);
 
-    CollisionHandler(CollisionHandler&& other) noexcept;
+        CollisionHandler(CollisionHandler&& other) noexcept;
 
-    CollisionHandler& operator=(const CollisionHandler& other);
+        CollisionHandler& operator=(const CollisionHandler& other);
 
-    CollisionHandler& operator=(CollisionHandler&& other) noexcept;
+        CollisionHandler& operator=(CollisionHandler&& other) noexcept;
 
-    ~CollisionHandler() override;
+        ~CollisionHandler() override;
 
 #pragma region EngineComponent
 
-    void update() override;
+        void update() override;
 
 #pragma endregion
 
-    void CopyCollisionComponents(Components& components, ECOLLISION_PROFILE profile);
+        void CopyCollisionComponents(Components& components, ECOLLISION_PROFILE profile);
 
-    static void CheckOnHit(const Components& components);
+        static void CheckOnHit(const Components& components);
 
-    static void CheckOverlaps(const Components& hit_component, const Components& overlap_components);
+        static void CheckOverlaps(const Components& hit_component, const Components& overlap_components);
 
-private:
+    private:
+        int m_prev_array_size{0};
 
-    int m_prev_array_size {0};
+        Components m_hitting_collision_components;
 
-    Components m_hitting_collision_components;
-
-    Components m_overlapping_collision_components;
-};
+        Components m_overlapping_collision_components;
+    };
 
 ENGINE_END
