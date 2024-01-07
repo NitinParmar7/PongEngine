@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "core/engine/Engine.h"
 
-class Pong : public GE::EngineCore
+class PongApp : public GE::EngineCore
 {
 public:
     
@@ -10,5 +10,5 @@ public:
 
 std::shared_ptr<GE::EngineCore> GE::create_engine()
 {
-    return EngineCore::get<Pong>();
+    return EngineCore::get<PongApp>();
 }
