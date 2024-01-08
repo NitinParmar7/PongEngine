@@ -5,5 +5,5 @@
 
 TitleGameObject::TitleGameObject()
 {
-    GE::Helper::AddObject<GE::GraphicComponent, GE::ListableEngineComponent>(m_game_object_components);
+    GE::Helper::AddObject<GE::GraphicComponent, GE::ListableGameObjectComponent>(m_game_object_components);
 }

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <memory>
-#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include "../src/CoreTypeDef.h"
 
 ENGINE_BEGIN
@@ -22,9 +23,9 @@ ENGINE_BEGIN
 
         virtual ~DrawableEntity();
 
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
+        virtual void draw(std::shared_ptr<sf::RenderWindow>& window) const = 0;
 
-        [[nodiscard]] virtual std::shared_ptr<DrawableEntity> GetDrawableEntity() const;
+        [[nodiscard]] virtual std::shared_ptr<DrawableEntity> GetDrawableEntity() const = 0;
     };
 
 

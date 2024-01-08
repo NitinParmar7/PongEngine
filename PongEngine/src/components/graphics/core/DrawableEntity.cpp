@@ -25,9 +25,4 @@ ENGINE_BEGIN
     = default;
 
 
-    std::shared_ptr<DrawableEntity> DrawableEntity::GetDrawableEntity() const
-    {
-        return nullptr;
-    }
-
 ENGINE_END
