@@ -1,6 +1,8 @@
 ﻿#include "ListableGameObjectComponent.h"
 
-ENGINE_BEGIN
+#include "ListableEngineComponent.h"
+
+namespace GE {
     ListableGameObjectComponent::ListableGameObjectComponent(
         const std::shared_ptr<ListableEngineComponent>& engine_component): GameObjectComponent()
     {
@@ -13,4 +15,4 @@ ENGINE_BEGIN
         m_engine_component->RemoveComponent(LComponent(this));
     }
 
-ENGINE_END
+}

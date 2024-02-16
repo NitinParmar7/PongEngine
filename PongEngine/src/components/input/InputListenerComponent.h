@@ -1,10 +1,9 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
-#include "../src/CoreTypeDef.h"
 #include "../core/GameObjectComponent.h"
 #include "components/core/ListableGameObjectComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     using Key = sf::Keyboard::Key;
 
 
@@ -43,4 +42,4 @@ ENGINE_BEGIN
         sf::Keyboard::Key key_;
     };
 
-ENGINE_END
+}

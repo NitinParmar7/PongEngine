@@ -1,6 +1,6 @@
 ﻿#include "SceneManager.h"
 
-ENGINE_BEGIN
+namespace GE {
 #pragma region EngineComponent
     SceneManager::SceneManager(const EngineCore* parent): EngineComponent(parent)
     {
@@ -117,4 +117,4 @@ ENGINE_BEGIN
     }
 
 
-ENGINE_END
+}

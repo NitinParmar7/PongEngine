@@ -21,9 +21,6 @@
     <ClCompile Include="src\components\scene\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CoreTypeDef.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\graphics\DrawableEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

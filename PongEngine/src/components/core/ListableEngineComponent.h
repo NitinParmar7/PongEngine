@@ -1,11 +1,10 @@
 ﻿#pragma once
 #include <memory>
 #include <vector>
-#include "../../CoreTypeDef.h"
 #include "EngineComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     class ListableGameObjectComponent;
 
 
@@ -34,4 +33,4 @@ ENGINE_BEGIN
         std::vector<LComponent> m_components_;
     };
 
-ENGINE_END
+}

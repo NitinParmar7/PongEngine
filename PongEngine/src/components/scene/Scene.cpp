@@ -1,6 +1,6 @@
 ﻿#include "Scene.h"
 
-ENGINE_BEGIN
+namespace GE {
     // template <typename T, typename ... Args>
     // std::shared_ptr<T> Scene::AddGameObject(Args&&... args)
     // {
@@ -30,4 +30,4 @@ ENGINE_BEGIN
     }
 
 
-ENGINE_END
+}

@@ -2,9 +2,8 @@
 #include <memory>
 #include <vector>
 
-#include "CoreTypeDef.h"
 
-ENGINE_BEGIN
+namespace GE {
     class Helper
     {
     public:
@@ -34,4 +33,4 @@ ENGINE_BEGIN
     }
     };
 
-ENGINE_END
+}

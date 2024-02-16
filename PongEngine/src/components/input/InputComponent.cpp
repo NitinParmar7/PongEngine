@@ -5,7 +5,7 @@
 #include "InputListenerComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     InputComponent::InputComponent(const EngineCore* parent): ListableEngineComponent(parent)
     {
     }
@@ -35,4 +35,4 @@ ENGINE_BEGIN
     }
 
 
-ENGINE_END
+}

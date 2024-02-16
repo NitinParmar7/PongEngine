@@ -1,7 +1,6 @@
 ﻿#pragma once
-#include "../../CoreTypeDef.h"
 
-ENGINE_BEGIN
+namespace GE {
     class BaseComponent // NOLINT(cppcoreguidelines-special-member-functions)
     {
     public:
@@ -14,4 +13,4 @@ ENGINE_BEGIN
         virtual void end() = 0;
     };
 
-ENGINE_END
+}

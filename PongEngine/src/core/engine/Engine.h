@@ -3,10 +3,9 @@
 #include <SFML/Graphics.hpp>
 
 #include "EngineData.h"
-#include "../../CoreTypeDef.h"
 #include "../../components/collision/CollisionHandler.h"
 
-ENGINE_BEGIN
+namespace GE {
     class EngineComponent;
     class RendererComponent;
     class InputComponent;
@@ -82,4 +81,4 @@ ENGINE_BEGIN
     std::shared_ptr<EngineCore> create_engine();
 
 
-ENGINE_END
+}

@@ -1,9 +1,8 @@
 ﻿#pragma once
 #include <memory>
 #include <vector>
-#include "../src/CoreTypeDef.h"
 
-ENGINE_BEGIN
+namespace GE {
     class GameObjectComponent;
 
     class GameObject
@@ -28,4 +27,4 @@ ENGINE_BEGIN
     };
 
 
-ENGINE_END
+}

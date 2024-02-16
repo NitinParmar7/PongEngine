@@ -4,7 +4,7 @@
 
 #include "CollisionComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     CollisionHandler::CollisionHandler(const CollisionHandler& other) = default;
 
     CollisionHandler::CollisionHandler(CollisionHandler&& other) noexcept: ListableEngineComponent(other)
@@ -104,4 +104,4 @@ ENGINE_BEGIN
     }
 
 
-ENGINE_END
+}

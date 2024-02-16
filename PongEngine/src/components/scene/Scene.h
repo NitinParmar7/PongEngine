@@ -3,10 +3,9 @@
 #include <memory>
 #include <vector>
 
-#include "../../CoreTypeDef.h"
 #include "../../core/gameobject/GameObject.h"
 
-ENGINE_BEGIN
+namespace GE {
     class Scene
     {
     public:
@@ -58,4 +57,4 @@ ENGINE_BEGIN
     };
 
 
-ENGINE_END
+}

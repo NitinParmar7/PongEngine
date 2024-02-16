@@ -1,6 +1,6 @@
 ﻿#include "InputListenerComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     void InputListenerComponent::update()
     {
     }
@@ -29,4 +29,4 @@ ENGINE_BEGIN
         pressed_ = false;
     }
 
-ENGINE_END
+}

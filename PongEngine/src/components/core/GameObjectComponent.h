@@ -4,7 +4,7 @@
 #include "BaseComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     class GameObject;
 
     class GameObjectComponent : public BaseComponent
@@ -30,4 +30,4 @@ ENGINE_BEGIN
 #pragma endregion
     };
 
-ENGINE_END
+}

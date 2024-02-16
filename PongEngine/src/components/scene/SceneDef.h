@@ -1,9 +1,8 @@
 ﻿#pragma once
 #include <cstdint>
 
-#include "../../CoreTypeDef.h"
 
-ENGINE_BEGIN
+namespace GE {
     enum class ESCENE_BEHAVIOUR : uint8_t
     {
         None,
@@ -38,4 +37,4 @@ ENGINE_BEGIN
     };
 
 
-ENGINE_END
+}

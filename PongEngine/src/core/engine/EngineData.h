@@ -1,8 +1,7 @@
 ﻿// ReSharper disable CppInconsistentNaming
 #pragma once
-#include "../../CoreTypeDef.h"
 
-ENGINE_BEGIN
+namespace GE {
 #define Default_Width 640;
 
 #define Default_Height 480;
@@ -32,4 +31,4 @@ ENGINE_BEGIN
     };
 
 
-ENGINE_END
+}

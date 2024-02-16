@@ -2,9 +2,8 @@
 #include <utility>
 
 #include "BaseComponent.h"
-#include "../../CoreTypeDef.h"
 
-ENGINE_BEGIN
+namespace GE {
     class EngineCore;
 
     class EngineComponent : public BaseComponent
@@ -41,4 +40,4 @@ ENGINE_BEGIN
         const EngineCore* m_parent_;
     };
 
-ENGINE_END
+}

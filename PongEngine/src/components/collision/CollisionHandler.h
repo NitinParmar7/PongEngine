@@ -1,9 +1,8 @@
 ﻿#pragma once
 #include "CollisionDef.h"
-#include "../../CoreTypeDef.h"
 #include "../core/ListableEngineComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     class CollisionComponent;
 
 
@@ -42,4 +41,4 @@ ENGINE_BEGIN
         Components m_overlapping_collision_components;
     };
 
-ENGINE_END
+}

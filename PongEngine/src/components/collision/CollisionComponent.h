@@ -2,11 +2,10 @@
 #include <SFML/Graphics/Rect.hpp>
 #include "CollisionDef.h"
 #include "PongEngine.h"
-#include "../../CoreTypeDef.h"
 #include "../core/GameObjectComponent.h"
 #include "components/core/ListableGameObjectComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     class CollisionComponent : public ListableGameObjectComponent
     {
     public:
@@ -43,4 +42,4 @@ ENGINE_BEGIN
         std::shared_ptr<sf::Shape> m_shape_bounds;
     };
 
-ENGINE_END
+}

@@ -1,8 +1,8 @@
 ﻿#include "RendererComponent.h"
 
-#include "GraphicComponent.h"
+#include "DrawableComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     RendererComponent::RendererComponent(const EngineCore* parent): ListableEngineComponent(parent)
     {
     }
@@ -27,11 +27,11 @@ ENGINE_BEGIN
     {
         for (const auto& element : m_components_)
         {
-            if (const auto graphic_component = std::dynamic_pointer_cast<GraphicComponent>(element))
+            if (const auto graphic_component = std::dynamic_pointer_cast<DrawableComponent>(element))
             {
                 graphic_component->draw(window);
             }
         }
     }
 
-ENGINE_END
+}

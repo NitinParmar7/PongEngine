@@ -3,7 +3,11 @@
 #include <string>
 
 
-ENGINE_BEGIN
+
+/**
+ * \brief
+ */
+namespace GE {
     // template <typename Derived, typename Base, typename Array, typename... Args>
     // std::shared_ptr<Derived> Helper::AddObject(std::vector<std::shared_ptr<Array>> object_array, Args&&... args)
     // {
@@ -30,4 +34,4 @@ ENGINE_BEGIN
     // }
 
 
-ENGINE_END
+}

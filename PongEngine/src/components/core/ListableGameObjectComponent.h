@@ -1,10 +1,12 @@
 ﻿#pragma once
-#include "CoreTypeDef.h"
+#include <memory>
 #include "GameObjectComponent.h"
-#include "PongEngine.h"
 
 
-ENGINE_BEGIN
+
+namespace GE {
+    class ListableEngineComponent;
+
     class ListableGameObjectComponent : public GameObjectComponent
     {
     public:
@@ -28,4 +30,4 @@ ENGINE_BEGIN
         std::shared_ptr<ListableEngineComponent> m_engine_component;
     };
 
-ENGINE_END
+}

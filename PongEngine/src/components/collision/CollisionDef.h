@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <cstdint>
-#include "../../CoreTypeDef.h"
 
-ENGINE_BEGIN
+
+namespace GE {
     enum class ECOLLISION_PROFILE : uint8_t
     {
         No_Collision,
@@ -11,4 +11,4 @@ ENGINE_BEGIN
     };
 
 
-ENGINE_END
+}

@@ -1,7 +1,7 @@
 ﻿#include "ListableEngineComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     ListableEngineComponent::ListableEngineComponent(const EngineCore* parent): EngineComponent(parent)
     {
         m_components_.clear();
@@ -35,4 +35,4 @@ ENGINE_BEGIN
         return std::erase(m_components_, component);
     }
 
-ENGINE_END
+}

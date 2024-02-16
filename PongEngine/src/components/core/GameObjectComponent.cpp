@@ -1,6 +1,6 @@
 ﻿#include "GameObjectComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     GameObjectComponent::GameObjectComponent(GameObjectComponent&& other) noexcept: BaseComponent(other)
     {
     }
@@ -36,4 +36,4 @@ ENGINE_BEGIN
     GameObjectComponent::~GameObjectComponent()
     = default;
 
-ENGINE_END
+}

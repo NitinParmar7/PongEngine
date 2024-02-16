@@ -6,7 +6,7 @@
 #include "Scene.h"
 #include "../core/EngineComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     class SceneManager : public EngineComponent
     {
     public:
@@ -39,4 +39,4 @@ ENGINE_BEGIN
         std::deque<SceneBehaviourData<Scene>> m_scene_behavior_;
     };
 
-ENGINE_END
+}

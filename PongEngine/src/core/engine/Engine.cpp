@@ -4,12 +4,16 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include "../Helper.h"
 #include "../../components/graphics/core/RendererComponent.h"
+#include "../../components/graphics/drawables/TextComponent.h"
 #include "../../components/input/InputComponent.h"
 #include "../../components/scene/SceneManager.h"
 
 
-ENGINE_BEGIN
+namespace GE {
+    class TextComponent;
+
     template <class T>
     std::shared_ptr<T> EngineCore::CreateComponent()
     {
@@ -35,6 +39,16 @@ ENGINE_BEGIN
         sf::CircleShape shape(100.f);
         shape.setFillColor(sf::Color::Green);
 
+        sf::Font m_open_sans;
+        sf::Text m_text;
+        if(m_open_sans.loadFromFile("../resources/font/open_sans/static/OpenSans-Regular.ttf"))
+            m_text = sf::Text(std::string("Hello"), m_open_sans, 30);
+
+        //std::vector<std::shared_ptr<__resharper_unknown_type>> m_game_object_components;
+        // Helper::AddObject<GE::TextComponent, GE::ListableGameObjectComponent>(m_game_object_components, std::string("Hello World!"));
+
+        TextComponent text = TextComponent(std::string("Hello World"));
+
         for (auto& element : m_engine_components_)
         {
             element->init(this);
@@ -55,7 +69,9 @@ ENGINE_BEGIN
                 element->update();
             }
             m_render_window_->draw(shape);
+            m_render_window_->draw(m_text);
             m_renderer_component_->Draw(m_render_window_);
+            text.draw(m_render_window_);
             m_render_window_->display();
             m_scene_manager_->ProcessScene();
         }
@@ -127,4 +143,4 @@ ENGINE_BEGIN
     }
 
 
-ENGINE_END
+}

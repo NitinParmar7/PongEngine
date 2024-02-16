@@ -1,6 +1,6 @@
 ﻿#include "EngineComponent.h"
 
-ENGINE_BEGIN
+namespace GE {
     EngineComponent::EngineComponent(const EngineComponent& other): BaseComponent(other),
                                                                     m_parent_(other.m_parent_)
     {
@@ -43,4 +43,4 @@ ENGINE_BEGIN
         m_parent_ = parent;
     }
 
-ENGINE_END
+}

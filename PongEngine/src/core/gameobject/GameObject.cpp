@@ -1,7 +1,7 @@
 ﻿#include "GameObject.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     // template <typename T, typename ... Args>
     // std::shared_ptr<T> GameObject::AddComponent(Args&&... args)
     // {
@@ -23,4 +23,4 @@ ENGINE_BEGIN
         return m_game_object_components;
     }
 
-ENGINE_END
+}

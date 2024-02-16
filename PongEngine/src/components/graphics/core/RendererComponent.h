@@ -1,11 +1,10 @@
 ﻿#pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "../../../CoreTypeDef.h"
 #include "../../core/ListableEngineComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     class RendererComponent : public ListableEngineComponent
 {
 public:
@@ -23,4 +22,4 @@ public:
     virtual void Draw( std::shared_ptr<sf::RenderWindow>& window) const;
 };
 
-ENGINE_END
+}

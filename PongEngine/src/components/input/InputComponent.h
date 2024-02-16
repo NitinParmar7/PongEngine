@@ -1,11 +1,10 @@
 ﻿#pragma once
 #include <memory>
 
-#include "../../CoreTypeDef.h"
 #include "../core/ListableEngineComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     class InputListenerComponent;
 
     using TypeInputListenerComponent = std::shared_ptr<InputListenerComponent>;
@@ -25,4 +24,4 @@ ENGINE_BEGIN
     };
 
 
-ENGINE_END
+}

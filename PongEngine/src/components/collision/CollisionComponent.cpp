@@ -1,7 +1,7 @@
 ﻿#include "CollisionComponent.h"
 
 
-ENGINE_BEGIN
+namespace GE {
     CollisionComponent::CollisionComponent(const CollisionComponent& other): ListableGameObjectComponent(other),
                                                                              m_collision_profile_(
                                                                                  other.m_collision_profile_)
@@ -69,4 +69,4 @@ ENGINE_BEGIN
         return m_shape_bounds->getGlobalBounds();
     }
 
-ENGINE_END
+}
